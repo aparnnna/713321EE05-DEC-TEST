@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details - CineReserve</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333;">
+    <header style="background-color: #000205; color: white; text-align: center; padding: 20px; font-family: cursive;">
+        <h1 style="margin: 0;">Cine Reserve</h1>
+    </header>
+
+    <main style="max-width: 600px; margin: 30px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 1.5rem; color: #ee0c0c; margin-bottom: 20px;">Complete Your Booking</h2>
+        <form action="confirm.html" method="GET" style="display: flex; flex-direction: column; gap: 15px;">
+            
+            <label for="movie" style="font-size: 1rem; color: #ee0c0c;">Movie Name:</label>
+            <input type="text" id="movie" name="movie" readonly value="" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+
+            
+            <label for="seats" style="font-size: 1rem; color: #ee0c0c;">Number of Seats:</label>
+            <select id="seats" name="seats" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+           
+            <label for="timing" style="font-size: 1rem; color: #ee0c0c;">Select Timing:</label>
+            <select id="timing" name="timing" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+                <option value="10:00 PM">10:00 PM</option>
+            </select>
+
+            
+            <button type="submit" style="padding: 10px 15px; background-color: #ee0c0c; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer;">Confirm Booking</button>
+        </form>
+    </main>
+
+    <footer style="background-color: #000000; color: white; text-align: center; padding: 10px;">
+        <p style="margin: 0;">&copy; 2024 CineReserve. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        
+        const params = new URLSearchParams(window.location.search);
+        const movieName = params.get('movie');
+        if (movieName) {
+            document.getElementById('movie').value = movieName;
+        } else {
+            document.getElementById('movie').value = "No movie selected";
+        }
+    </script>
+</body>
+</html>
